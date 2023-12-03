@@ -47,7 +47,6 @@
                     $controller = new $class;
                     $action = $route['action'];
                     $controller->$action();
-                    var_dump($controller);
                 } else {
                     echo "action not found! <br>";
                 }
