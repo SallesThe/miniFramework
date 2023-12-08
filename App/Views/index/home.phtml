@@ -1,0 +1,8 @@
+<h1>Home</h1>
+<hr>
+<?php 
+    $superCars = $this->view->data;
+    foreach ($superCars as $key => $car) {
+        echo $car . '<br>';
+    }
+?>

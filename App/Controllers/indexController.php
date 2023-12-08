@@ -1,19 +1,42 @@
 <?php 
     namespace App\Controllers;
+    use stdClass;
+
     class indexController
     {
-        
-        public function __construct() {
+        private $view;
+
+        public function __construct()
+        {
+            $this->view = new stdClass();
         }
 
-        public function index()
+        public function login()
         {
-            echo 'Chegamos ao indexController e disparamos a action Index';
+            $this->view->data = array('Playstation 5', 'Playstation 4', 'Playstation 3', 'Playstation 2', 'Playstation');
+            $this->render('login');
+            
         }
         
         public function home()
         {
-            echo 'Chegamos ao indexController e disparamos a action Index';
+            $this->view->data = array('Taycan', 'Urus', 'Corvette', 'Mustang');
+            $this->render('home');
+        }
+
+        public function render($view)
+        {
+            $currentClass = get_class($this);
+            $currentClass = str_replace('App\\Controllers\\', '', $currentClass);
+            $currentClass = str_replace('Controller', '', $currentClass);
+            var_dump(
+         [   
+                    "Classe Atual" => $currentClass, 
+                    "View" => $view
+                ]
+            
+            );
+            require_once '../App/Views/' . $currentClass . '/' . $view . '.phtml';
         }
     }
 ?>
