@@ -17,6 +17,12 @@
                 'action' => 'home'
             );
 
+            $routes['sobreNos'] = array(
+                'route' => '/sobre_nos',
+                'controller' => 'indexController',
+                'action' => 'sobreNos'
+            );
+
             // * Here we set the routes that were initialized
             $this->setRoutes($routes);
         }

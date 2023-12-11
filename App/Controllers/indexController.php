@@ -1,42 +1,27 @@
 <?php 
     namespace App\Controllers;
     use stdClass;
+    use MF\Controller\Action;
 
-    class indexController
+    class indexController extends Action
     {
-        private $view;
-
-        public function __construct()
-        {
-            $this->view = new stdClass();
-        }
-
         public function login()
         {
             $this->view->data = array('Playstation 5', 'Playstation 4', 'Playstation 3', 'Playstation 2', 'Playstation');
-            $this->render('login');
+            $this->render('login', 'Layout_Default');
             
         }
         
         public function home()
         {
             $this->view->data = array('Taycan', 'Urus', 'Corvette', 'Mustang');
-            $this->render('home');
+            $this->render('home', 'Layout_Default');
         }
 
-        public function render($view)
+        public function sobreNos()
         {
-            $currentClass = get_class($this);
-            $currentClass = str_replace('App\\Controllers\\', '', $currentClass);
-            $currentClass = str_replace('Controller', '', $currentClass);
-            var_dump(
-         [   
-                    "Classe Atual" => $currentClass, 
-                    "View" => $view
-                ]
-            
-            );
-            require_once '../App/Views/' . $currentClass . '/' . $view . '.phtml';
+            $this->view->data = array('Davi', 'Duda', 'Caju', 'Susy', 'Pérola');
+            $this->render('sobre_nos', 'Layout_Default');
         }
     }
 ?>
