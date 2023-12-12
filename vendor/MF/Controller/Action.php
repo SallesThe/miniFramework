@@ -14,7 +14,12 @@
         protected function render($view, $layout)
         {
             $this->view->page = $view;
-            require_once "../App/Views/" . $layout . ".phtml";
+            if(file_exists("../App/Views/" . $layout . ".phtml"))
+            {
+                require_once "../App/Views/" . $layout . ".phtml";
+            } else {
+                $this->content();
+            }
         }
 
         protected function content()

@@ -15,7 +15,7 @@
         public function home()
         {
             $this->view->data = array('Taycan', 'Urus', 'Corvette', 'Mustang');
-            $this->render('home', 'Layout_Default');
+            $this->render('home', 'Layout_Redddd');
         }
 
         public function sobreNos()
