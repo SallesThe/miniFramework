@@ -1,18 +1,17 @@
 <?php 
     namespace App;
-
-use Exception;
-use PDO;
+    use PDO;
+    use PDOException;
 
     class Connection
     {
-        public function Connect()
+        public static function Connect()
         {
             try {
-                $conn = new PDO("mysql:host=localhost;dbname=mydb;charset=utf8", "root", "");
+                $conn = new PDO("mysql:host=localhost;dbname=mvc;charset=utf8", "root", "");
                 return $conn;
-            } catch (Exception $e) {
-                // ! tratar...
+            } catch (PDOException $e) {
+                echo "Error: " . $e->getMessage();
             }
         }
     }

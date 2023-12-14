@@ -2,7 +2,8 @@
 <hr>
 <?php 
     $superCars = $this->view->data;
-    foreach ($superCars as $key => $car) {
-        echo $car . '<br>';
+    foreach ($superCars as $key => $value) {
+        echo $value['id'] . " - " . $value['titulo'] . " -- Preço: " . $value['descricao'];
+        echo "<br>";
     }
 ?>

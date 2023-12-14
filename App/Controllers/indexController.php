@@ -1,26 +1,41 @@
 <?php 
     namespace App\Controllers;
-    use stdClass;
+    
+    // * Resources miniFramework
     use MF\Controller\Action;
+
+    // * Models
+    use App\Models\Home;
+    use App\Models\Product;
+    use MF\Model\Container;
 
     class indexController extends Action
     {
         public function login()
         {
-            $this->view->data = array('Playstation 5', 'Playstation 4', 'Playstation 3', 'Playstation 2', 'Playstation');
+            $product = Container::getModel('Product');
+
+            $products = $product->getProducts();
+
+            $this->view->data = $products;
+
             $this->render('login', 'Layout_Default');
             
         }
         
         public function home()
         {
-            $this->view->data = array('Taycan', 'Urus', 'Corvette', 'Mustang');
-            $this->render('home', 'Layout_Redddd');
+            $home = Container::getModel('Home');
+            
+            $homes = $home->getHome();
+
+            $this->view->data = $homes;
+
+            $this->render('home', 'Layout_Red');
         }
 
         public function sobreNos()
         {
-            $this->view->data = array('Davi', 'Duda', 'Caju', 'Susy', 'Pérola');
             $this->render('sobre_nos', 'Layout_Default');
         }
     }

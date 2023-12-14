@@ -3,6 +3,7 @@
 <?php 
     $sonyPlaystation = $this->view->data;
     foreach ($sonyPlaystation as $key => $value) {
-        echo $value . "<br>";
+        echo $value['id'] . " - " . $value['descricao'] . " -- Preço: " . $value['preco'];
+        echo "<br>";
     }
 ?>
